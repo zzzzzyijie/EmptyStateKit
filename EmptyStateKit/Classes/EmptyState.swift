@@ -8,11 +8,11 @@
 
 import UIKit
 
-public protocol EmptyStateDelegate: class {
+public protocol EmptyStateDelegate: AnyObject {
     func emptyState(emptyState: EmptyState, didPressButton button: UIButton)
 }
 
-public protocol EmptyStateDataSource: class {
+public protocol EmptyStateDataSource: AnyObject {
     func imageForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> UIImage?
     func titleForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> String?
     func descriptionForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> String?
@@ -25,7 +25,7 @@ public class EmptyState {
     public weak var dataSource: EmptyStateDataSource?
     
     private var emptyStateView: EmptyStateView!
-    private var tableView: UITableView?
+    private weak var tableView: UITableView?
     private var separatorStyle: UITableViewCell.SeparatorStyle = .none
     
     /// Show or hide view
