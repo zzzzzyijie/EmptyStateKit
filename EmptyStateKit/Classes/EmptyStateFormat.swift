@@ -19,6 +19,9 @@ public struct EmptyStateFormat {
     /// Button attributes
     public var buttonAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "AvenirNext-DemiBold", size: 14)!, .foregroundColor: UIColor.white]
     
+    /// Sub Button attributes
+    public var subButtonAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "AvenirNext-DemiBold", size: 14)!, .foregroundColor: UIColor.white]
+    
     /// Button color
     public var buttonColor: UIColor = .red
     
@@ -66,3 +69,4 @@ public struct EmptyStateFormat {
     
     public init() {}
 }
+

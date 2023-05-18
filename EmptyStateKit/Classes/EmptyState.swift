@@ -10,6 +10,7 @@ import UIKit
 
 public protocol EmptyStateDelegate: AnyObject {
     func emptyState(emptyState: EmptyState, didPressButton button: UIButton)
+    func emptyState(emptyState: EmptyState, didPressSubButton button: UIButton)
 }
 
 public protocol EmptyStateDataSource: AnyObject {
@@ -17,6 +18,7 @@ public protocol EmptyStateDataSource: AnyObject {
     func titleForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> String?
     func descriptionForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> String?
     func titleButtonForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> String?
+    func subTitleButtonForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> String?
 }
 
 public class EmptyState {
@@ -44,13 +46,15 @@ public class EmptyState {
                     image: dataSource.imageForState(state, inEmptyState: self),
                     title: dataSource.titleForState(state, inEmptyState: self),
                     description: dataSource.descriptionForState(state, inEmptyState: self),
-                    titleButton: dataSource.titleButtonForState(state, inEmptyState: self))
+                    titleButton: dataSource.titleButtonForState(state, inEmptyState: self),
+                    subTitleButton: dataSource.subTitleButtonForState(state, inEmptyState: self))
             } else {
                 emptyStateView.viewModel = EmptyStateView.ViewModel(
                     image: state.image,
                     title: state.title,
                     description: state.description,
-                    titleButton: state.titleButton)
+                    titleButton: state.titleButton,
+                    subTitleButton: state.subTitleButton)
             }
         }
     }
@@ -68,6 +72,10 @@ public class EmptyState {
         emptyStateView.isHidden = true
         emptyStateView.actionButton = { [weak self] (button) in
             self?.didPressActionButton(button)
+        }
+        
+        emptyStateView.subActionButton = { [weak self] (button) in
+            self?.didPressSubActionButton(button)
         }
         
         // Add it to your view
@@ -103,4 +111,9 @@ extension EmptyState {
     private func didPressActionButton(_ button: UIButton) {
         delegate?.emptyState(emptyState: self, didPressButton: button)
     }
+    
+    private func didPressSubActionButton(_ button: UIButton) {
+        delegate?.emptyState(emptyState: self, didPressSubButton: button)
+    }
 }
+

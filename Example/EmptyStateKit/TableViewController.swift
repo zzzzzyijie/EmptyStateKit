@@ -98,4 +98,8 @@ extension TableViewController: EmptyStateDelegate {
     func emptyState(emptyState: EmptyState, didPressButton button: UIButton) {
         fetchData()
     }
+    
+    func emptyState(emptyState: EmptyState, didPressSubButton button: UIButton) {
+        
+    }
 }

@@ -13,6 +13,7 @@ public protocol CustomState {
     var title: String? { get }
     var description: String? { get }
     var titleButton: String? { get }
+    var subTitleButton: String? { get }
 }
 
 public extension CustomState {
@@ -32,4 +33,9 @@ public extension CustomState {
     var titleButton: String? {
         get { return nil }
     }
+    
+    var subTitleButton: String? {
+        get { return nil }
+    }
 }
+

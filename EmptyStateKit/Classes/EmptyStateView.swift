@@ -16,6 +16,7 @@ class EmptyStateView: NibView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var primaryButton: UIButton!
+    @IBOutlet weak var subPrimaryButton: UIButton!
     
     // Constraints
     @IBOutlet var primaryButtonWidthConstraint: NSLayoutConstraint!
@@ -43,6 +44,7 @@ class EmptyStateView: NibView {
         var title: String?
         var description: String?
         var titleButton: String?
+        var subTitleButton: String?
     }
     
     var viewModel = ViewModel() {
@@ -54,6 +56,8 @@ class EmptyStateView: NibView {
     }
     
     var actionButton: ((UIButton)->())?
+
+    var subActionButton: ((UIButton)->())?
     
     private var gradientLayer: CAGradientLayer?
     
@@ -63,6 +67,10 @@ class EmptyStateView: NibView {
     
     @IBAction func didPressPrimaryButton(_ sender: UIButton) {
         actionButton?(sender)
+    }
+    
+    @IBAction func didPressSubPrimaryButton(_ sender: UIButton) {
+        subActionButton?(sender)
     }
     
     override func commonInit() {
@@ -104,6 +112,14 @@ extension EmptyStateView {
         if let titleButton = viewModel.titleButton {
             primaryButton.isHidden = false
             primaryButton.setAttributedTitle(NSAttributedString(string: titleButton, attributes: format.buttonAttributes), for: .normal)
+            
+            // 有titleButton 才有会 subTitleButton
+            if let subTitleButton = viewModel.subTitleButton {
+                subPrimaryButton.isHidden = false
+                subPrimaryButton.setAttributedTitle(NSAttributedString(string: subTitleButton, attributes: format.subButtonAttributes), for: .normal)
+            }else {
+                subPrimaryButton.isHidden = true
+            }
         } else {
             primaryButton.isHidden = true
         }
@@ -177,3 +193,4 @@ extension EmptyStateView {
 }
 
 extension EmptyStateView: NibLoadable {}
+

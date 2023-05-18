@@ -86,4 +86,8 @@ enum TableState: CustomState {
         case .inviteFriend: return "View contact"
         }
     }
+    
+    var subTitleButton: String? {
+        return "还是不行怎么办？"
+    }
 }

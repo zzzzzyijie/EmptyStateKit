@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
         format.imageSize = CGSize(width: 320, height: 200)
         format.buttonShadowRadius = 10
         format.titleAttributes = [.font: UIFont(name: "AvenirNext-DemiBold", size: 26)!, .foregroundColor: UIColor.white]
+        format.subButtonAttributes = [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.white]
         format.descriptionAttributes = [.font: UIFont(name: "Avenir Next", size: 14)!, .foregroundColor: UIColor.white]
         format.gradientColor = ("3854A5".hexColor, "2A1A6C".hexColor)
         
@@ -57,6 +58,10 @@ extension MainViewController: EmptyStateDelegate {
     func emptyState(emptyState: EmptyState, didPressButton button: UIButton) {
         view.emptyState.hide()
     }
+    
+    func emptyState(emptyState: EmptyState, didPressSubButton button: UIButton) {
+        
+    }
 }
 
 extension MainViewController: EmptyStateDataSource {
@@ -83,6 +88,10 @@ extension MainViewController: EmptyStateDataSource {
         switch state as! MainState {
         case .noInternet: return "Try again?"
         }
+    }
+    
+    func subTitleButtonForState(_ state: CustomState, inEmptyState emptyState: EmptyState) -> String? {
+        return "还是不行怎么办？"
     }
 }
 
