@@ -122,6 +122,7 @@ extension EmptyStateView {
             }
         } else {
             primaryButton.isHidden = true
+            subPrimaryButton.isHidden = true
         }
     }
     
