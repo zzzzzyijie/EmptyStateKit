@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -122,6 +122,7 @@
                 <outlet property="messageViewTopConstraint" destination="Tju-cH-mib" id="WkS-oB-aak"/>
                 <outlet property="primaryButton" destination="0r6-no-wwh" id="8PV-dj-g56"/>
                 <outlet property="primaryButtonCenterXConstraint" destination="MUa-Tn-yuc" id="NiV-xV-oZa"/>
+                <outlet property="primaryButtonHeightConstraint" destination="OdJ-Bw-0Rt" id="AGy-Bd-3rj"/>
                 <outlet property="primaryButtonLeftConstraint" destination="vxC-fj-pk6" id="HsE-Tc-3dj"/>
                 <outlet property="primaryButtonRightConstraint" destination="02j-HF-o2e" id="8Fp-jy-GII"/>
                 <outlet property="primaryButtonTop2Constraint" destination="Nfb-NG-Mq2" id="72d-Qq-Bdn"/>

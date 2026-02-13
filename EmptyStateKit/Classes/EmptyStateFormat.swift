@@ -22,6 +22,9 @@ public struct EmptyStateFormat {
     /// Sub Button attributes
     public var subButtonAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "AvenirNext-DemiBold", size: 14)!, .foregroundColor: UIColor.white]
     
+    /// Title top margin
+    public var titleTopMargin: CGFloat = 26
+    
     /// Button color
     public var buttonColor: UIColor = .red
     
@@ -30,6 +33,9 @@ public struct EmptyStateFormat {
     
     /// Button corner radius
     public var buttonRadius: CGFloat = 20.0
+    
+    /// Button height
+    public var buttonHeight: CGFloat = 40
     
     /// Button width, nil = auto
     public var buttonWidth: CGFloat? = nil

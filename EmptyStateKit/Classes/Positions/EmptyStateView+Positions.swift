@@ -95,6 +95,7 @@ extension EmptyStateView {
         imageViewTopConstraint.isActive = true
         imageViewBottomConstraint.isActive = true
         primaryButtonTopConstraint.isActive = true
+        coverImageViewBottomConstraint.constant = format.titleTopMargin
         primaryButtonTopConstraint.constant = format.buttonTopMargin
     }
     
